@@ -8,11 +8,13 @@ We do not store every expert behavior. We store a compact basis that can generat
 
 This repo turns agent skills into agent instincts.
 
+Humans do not run named skills in their heads. They internalize knowledge, notice context, and let that change what they do, how they do it, and why they do it.
+
 When knowledge is internalized, behavior can change.
 
-Instead of installing a growing list of situational skills, it extracts the expert behavior behind those skills and composes it through a compact `AGENTS.md` / `CLAUDE.md` contract.
+Instead of installing a growing list of situational skills, this repo extracts the expert behavior behind those skills and expresses it as simple, observable obligations inside a compact `AGENTS.md` / `CLAUDE.md` contract.
 
-The target is not compliance with sections. The target is human-like professional conduct shaped by internalized behavioral patterns.
+The target is not compliance with sections. The target is professional conduct shaped by internalized behavioral patterns, translated into actions ordinary coding agents can actually follow: read, ask, limit scope, stop on risk, verify, and hand off.
 
 **The goal:** broader aligned agent behavior with less prompt growth, less context overhead, and more verifiable work.
 
@@ -84,6 +86,8 @@ The vectors are not rule sections. They are dimensions of professional conduct. 
 **A skill teaches a recipe. A behavior teaches judgment.**
 
 When a skill is internalized as behavior, the agent can act differently beyond the original recipe.
+
+In the contract itself, this is not expressed as philosophy. It is expressed as executable conduct: inspect evidence, surface ambiguity, preserve scope, avoid speculative complexity, block risky work, and verify before claiming success.
 
 ---
 

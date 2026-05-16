@@ -8,6 +8,8 @@ The central idea is simple: do not store every expert behavior; store a compact 
 
 The target is not section compliance. The target is professional conduct shaped by composable, regulated, internalized behavior patterns.
 
+The model is human professional conduct, not a menu of commands. A professional does not think “run the TDD skill”. They know enough about risk, evidence, feedback, and intent to choose a test-first loop when the situation calls for it.
+
 The goal is to reduce avoidable coding-agent failures without making the instruction file so large that the agent stops following it.
 
 ## Design constraints
@@ -128,11 +130,15 @@ The desired outcome is not that the agent memorizes more procedures. The desired
 
 When knowledge is internalized, behavior can change. This contract uses that human pattern as a design target for agents.
 
+That does not mean the operational contract should ask the model to “be human” or rely on vague judgment. The human pattern is translated into small observable obligations: identify intent, inspect evidence, constrain scope, name risk, verify results, and hand off honestly.
+
 When a useful skill is distilled into vectors and operators, the agent can produce aligned behavior in neighboring situations that were never written as separate skills.
 
 That is the leverage: new aligned conduct can emerge from combinations of existing behavioral components plus small task-specific details, instead of requiring a new instruction block for every case.
 
 The skill is no longer just a recipe to execute. It becomes a behavioral influence that changes what the agent notices, asks, avoids, verifies, and reports.
+
+For portability, the final `AGENTS.md` should avoid poetic or aspirational language. It should contain conduct that cheaper or weaker models can still attempt: read this, ask when ambiguous, do not touch that, stop here, verify this, report what remains unknown.
 
 That is the main product claim:
 
