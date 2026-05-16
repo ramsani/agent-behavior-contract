@@ -2,7 +2,7 @@ name: Validate Contract Files
 
 on:
   push:
-    branches: [master]
+    branches: [master, cto/validacion-ci]
   pull_request:
     branches: [master]
 
@@ -17,65 +17,56 @@ jobs:
 
       - name: Validate AGENTS.md and CLAUDE.md consistency
         run: |
-          echo "=== Validando consistencia AGENTS.md vs CLAUDE.md ==="
+          echo "=== Validating consistency AGENTS.md vs CLAUDE.md ==="
           
-          # Comparar tamaños (deben ser idénticos o casi)
           SIZE_AGENTS=$(wc -c < AGENTS.md)
           SIZE_CLAUDE=$(wc -c < CLAUDE.md)
           echo "AGENTS.md: $SIZE_AGENTS bytes"
           echo "CLAUDE.md: $SIZE_CLAUDE bytes"
           
           if [ "$SIZE_AGENTS" -ne "$SIZE_CLAUDE" ]; then
-            echo "ERROR: AGENTS.md y CLAUDE.md tienen tamaños diferentes"
+            echo "ERROR: Size mismatch detected"
             exit 1
           fi
-          
-          # Comparar que las secciones principales existan en ambos
-          echo ""
-          echo "=== Secciones en AGENTS.md ==="
-          grep "^## " AGENTS.md | head -20
+          echo "✅ Size check passed"
           
           echo ""
-          echo "=== Secciones en CLAUDE.md ==="
-          grep "^## " CLAUDE.md | head -20
-          
-          # Verificar que ключевые secciones existan
+          echo "=== Checking required sections ==="
           for section in "START" "READ BEFORE ACTING" "PLAN BY RISK" "VERIFY BEFORE CLOSING" "CLOSE AND HANDOFF"; do
             if ! grep -q "$section" AGENTS.md; then
-              echo "ERROR: Sección '$section' NO encontrada en AGENTS.md"
+              echo "ERROR: Section '$section' NOT found in AGENTS.md"
               exit 1
             fi
+            echo "✅ Section '$section' present"
           done
-          
-          echo ""
-          echo "✅ Consistencia validada correctamente"
 
       - name: Check markdown syntax
         run: |
-          echo "=== Verificando sintaxis markdown ==="
+          echo "=== Verifying markdown files ==="
           for f in *.md; do
-            echo "$f: $(wc -l < $f) líneas"
+            lines=$(wc -l < "$f")
+            echo "$f: $lines lines"
           done
-          
-      - name: Validate no secrets in contract files
+
+      - name: Validate no secrets
         run: |
-          echo "=== Verificando que no haya secrets hardcoded ==="
+          echo "=== Checking for hardcoded secrets ==="
           if grep -iE "(api_key|password|token|secret|ghp_|sk-)" AGENTS.md CLAUDE.md 2>/dev/null; then
-            echo "ERROR: Posibles secrets detectados en archivos"
+            echo "ERROR: Potential secret detected"
             exit 1
           fi
-          echo "✅ Sin secrets detectados"
+          echo "✅ No secrets found"
 
-      - name: Validate required files exist
+      - name: Verify required files
         run: |
-          echo "=== Verificando archivos requeridos ==="
+          echo "=== Verifying required files ==="
           for f in AGENTS.md CLAUDE.md README.md LICENSE; do
             if [ -f "$f" ]; then
-              echo "✅ $f existe"
+              echo "✅ $f exists"
             else
-              echo "❌ $f FALTANTE"
+              echo "❌ $f MISSING"
               exit 1
             fi
           done
           echo ""
-          echo "✅ Todos los archivos requeridos presentes"
+          echo "✅ All required files present"
