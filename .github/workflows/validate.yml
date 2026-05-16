@@ -2,7 +2,7 @@ name: Validate Contract Files
 
 on:
   push:
-    branches: [master, cto/validacion-ci]
+    branches: [master]
   pull_request:
     branches: [master]
 
@@ -32,15 +32,18 @@ jobs:
           
           echo ""
           echo "=== Checking required sections ==="
-          for section in "START" "READ BEFORE ACTING" "PLAN BY RISK" "VERIFY BEFORE CLOSING" "CLOSE AND HANDOFF"; do
-            if ! grep -q "$section" AGENTS.md; then
-              echo "ERROR: Section '$section' NOT found in AGENTS.md"
+          # Case-insensitive section check (files use "## 1. Start" style)
+          for section in "Start" "Read Before Acting" "Plan By Risk" "Verify Before Closing" "Close And Handoff"; do
+            if ! grep -qi "$section" AGENTS.md; then
+              echo "ERROR: Section containing '$section' NOT found in AGENTS.md"
               exit 1
             fi
             echo "✅ Section '$section' present"
           done
+          echo ""
+          echo "✅ All required sections present"
 
-      - name: Check markdown syntax
+      - name: Check markdown files
         run: |
           echo "=== Verifying markdown files ==="
           for f in *.md; do
