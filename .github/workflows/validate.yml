@@ -1,0 +1,72 @@
+name: Validate Contract Files
+
+on:
+  push:
+    branches: [master, cto/validacion-ci]
+  pull_request:
+    branches: [master]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate AGENTS.md and CLAUDE.md consistency
+        run: |
+          echo "=== Validating consistency AGENTS.md vs CLAUDE.md ==="
+          
+          SIZE_AGENTS=$(wc -c < AGENTS.md)
+          SIZE_CLAUDE=$(wc -c < CLAUDE.md)
+          echo "AGENTS.md: $SIZE_AGENTS bytes"
+          echo "CLAUDE.md: $SIZE_CLAUDE bytes"
+          
+          if [ "$SIZE_AGENTS" -ne "$SIZE_CLAUDE" ]; then
+            echo "ERROR: Size mismatch detected"
+            exit 1
+          fi
+          echo "✅ Size check passed"
+          
+          echo ""
+          echo "=== Checking required sections ==="
+          for section in "START" "READ BEFORE ACTING" "PLAN BY RISK" "VERIFY BEFORE CLOSING" "CLOSE AND HANDOFF"; do
+            if ! grep -q "$section" AGENTS.md; then
+              echo "ERROR: Section '$section' NOT found in AGENTS.md"
+              exit 1
+            fi
+            echo "✅ Section '$section' present"
+          done
+
+      - name: Check markdown syntax
+        run: |
+          echo "=== Verifying markdown files ==="
+          for f in *.md; do
+            lines=$(wc -l < "$f")
+            echo "$f: $lines lines"
+          done
+
+      - name: Validate no secrets
+        run: |
+          echo "=== Checking for hardcoded secrets ==="
+          if grep -iE "(api_key|password|token|secret|ghp_|sk-)" AGENTS.md CLAUDE.md 2>/dev/null; then
+            echo "ERROR: Potential secret detected"
+            exit 1
+          fi
+          echo "✅ No secrets found"
+
+      - name: Verify required files
+        run: |
+          echo "=== Verifying required files ==="
+          for f in AGENTS.md CLAUDE.md README.md LICENSE; do
+            if [ -f "$f" ]; then
+              echo "✅ $f exists"
+            else
+              echo "❌ $f MISSING"
+              exit 1
+            fi
+          done
+          echo ""
+          echo "✅ All required files present"
