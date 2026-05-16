@@ -1,0 +1,81 @@
+name: Validate Contract Files
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate AGENTS.md and CLAUDE.md consistency
+        run: |
+          echo "=== Validando consistencia AGENTS.md vs CLAUDE.md ==="
+          
+          # Comparar tamaños (deben ser idénticos o casi)
+          SIZE_AGENTS=$(wc -c < AGENTS.md)
+          SIZE_CLAUDE=$(wc -c < CLAUDE.md)
+          echo "AGENTS.md: $SIZE_AGENTS bytes"
+          echo "CLAUDE.md: $SIZE_CLAUDE bytes"
+          
+          if [ "$SIZE_AGENTS" -ne "$SIZE_CLAUDE" ]; then
+            echo "ERROR: AGENTS.md y CLAUDE.md tienen tamaños diferentes"
+            exit 1
+          fi
+          
+          # Comparar que las secciones principales existan en ambos
+          echo ""
+          echo "=== Secciones en AGENTS.md ==="
+          grep "^## " AGENTS.md | head -20
+          
+          echo ""
+          echo "=== Secciones en CLAUDE.md ==="
+          grep "^## " CLAUDE.md | head -20
+          
+          # Verificar que ключевые secciones existan
+          for section in "START" "READ BEFORE ACTING" "PLAN BY RISK" "VERIFY BEFORE CLOSING" "CLOSE AND HANDOFF"; do
+            if ! grep -q "$section" AGENTS.md; then
+              echo "ERROR: Sección '$section' NO encontrada en AGENTS.md"
+              exit 1
+            fi
+          done
+          
+          echo ""
+          echo "✅ Consistencia validada correctamente"
+
+      - name: Check markdown syntax
+        run: |
+          echo "=== Verificando sintaxis markdown ==="
+          for f in *.md; do
+            echo "$f: $(wc -l < $f) líneas"
+          done
+          
+      - name: Validate no secrets in contract files
+        run: |
+          echo "=== Verificando que no haya secrets hardcoded ==="
+          if grep -iE "(api_key|password|token|secret|ghp_|sk-)" AGENTS.md CLAUDE.md 2>/dev/null; then
+            echo "ERROR: Posibles secrets detectados en archivos"
+            exit 1
+          fi
+          echo "✅ Sin secrets detectados"
+
+      - name: Validate required files exist
+        run: |
+          echo "=== Verificando archivos requeridos ==="
+          for f in AGENTS.md CLAUDE.md README.md LICENSE; do
+            if [ -f "$f" ]; then
+              echo "✅ $f existe"
+            else
+              echo "❌ $f FALTANTE"
+              exit 1
+            fi
+          done
+          echo ""
+          echo "✅ Todos los archivos requeridos presentes"
