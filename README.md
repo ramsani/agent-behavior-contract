@@ -6,6 +6,20 @@ Most agent-skill repos grow by adding more instructions. This project takes the 
 
 Fewer skills. Stronger composition. Verifiable agent behavior.
 
+## Core thesis
+
+Most agent-skill repos grow by adding more instructions.
+
+This project takes the opposite path: extract the behavioral vectors behind useful skills, then compose them into a compact operating contract.
+
+A skill teaches an agent what to do in one situation. A behavioral vector teaches the agent how to behave across many situations.
+
+Skills are executable examples of behavior. This project extracts the behavioral vectors behind those skills, so agents can internalize the capability instead of carrying a growing catalog of instructions.
+
+The goal is not a larger skill catalog. The goal is transferable behavior with less context overhead.
+
+Don’t give the agent more skills. Teach it the behavioral vectors that make skills work.
+
 ---
 
 ## What this is
