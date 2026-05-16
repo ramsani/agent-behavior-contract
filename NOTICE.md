@@ -9,4 +9,4 @@ That work helped show how much agent behavior can be changed with a small instru
 
 This repository explores a different direction: treating the instruction file as a compositional behavioral contract, with independent base rules, context operators, block conditions, and auditable handoff.
 
-The goal is attribution without overstating novelty. This project builds on a public line of thought and contributes a more explicit organization of the same practical problem: how to make coding agents safer, narrower, more verifiable, and easier to hand off.
+This project is independent and is not affiliated with or endorsed by Andrej Karpathy. The goal is attribution without overstating novelty. This project builds on a public line of thought and contributes a more explicit organization of the same practical problem: how to make coding agents safer, narrower, more verifiable, and easier to hand off.
