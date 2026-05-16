@@ -19,7 +19,7 @@ karpathy-agent-contract
 ## Description
 
 ```text
-Karpathy- and Pocock-inspired behavioral basis for coding agents: turn skills into instincts with a compact AGENTS.md / CLAUDE.md contract.
+AGENTS.md / CLAUDE.md behavioral contract for coding agents, Claude Code, Cursor, Codex, and LLM software engineering. Turn skills into instincts.
 ```
 
 ## Suggested topics
@@ -30,11 +30,15 @@ ai-agents
 coding-agents
 agents-md
 claude-code
+claude-md
 codex
 cursor
 llm
+llm-agents
 software-engineering
+ai-engineering
 prompt-engineering
+agent-skills
 karpathy
 pocock
 vectorial

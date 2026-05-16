@@ -1,6 +1,36 @@
 # Karpathy-Pocock Vectorial Agent Contract
 
-A behavioral basis for coding agents.
+**AGENTS.md / CLAUDE.md behavioral contract for coding agents, AI agents, Claude Code, Cursor, Codex, and LLM software engineering.**
+
+Your coding agent already knows how to write code.
+
+The problem is what it does before, during, and after writing it.
+
+It guesses intent. It designs from memory. It overbuilds. It edits nearby code. It changes public behavior silently. It says “done” without evidence.
+
+This repo gives the agent a compact behavioral basis that changes that trajectory.
+
+> More aligned behavior. Less prompt mass.
+>
+> Composition can replace accumulation.
+
+## Try it in 30 seconds
+
+```bash
+curl -o AGENTS.md https://raw.githubusercontent.com/ramsani/karpathy-pocock-vectorial-agent-contract/master/AGENTS.md
+```
+
+For Claude Code:
+
+```bash
+curl -o CLAUDE.md https://raw.githubusercontent.com/ramsani/karpathy-pocock-vectorial-agent-contract/master/CLAUDE.md
+```
+
+Then ask your agent to fix a bug, add a feature, or review a change. Watch for the difference: it should read first, narrow scope, stop on risk, verify before claiming success, and leave a cleaner handoff.
+
+---
+
+## What this is
 
 This project does not model roles or rule sections. It models professional behavior patterns that compose, regulate, and modify agent conduct.
 
@@ -18,21 +48,11 @@ The target is not compliance with sections. The target is professional conduct s
 
 **The goal:** broader aligned agent behavior with less prompt growth, less context overhead, and more verifiable work.
 
-> More aligned behavior. Less prompt mass.
->
-> Composition can replace accumulation.
-
 Inspired by Andrej Karpathy's coding-agent failure modes and Matt Pocock's composable agent skills work. Independent project. Not affiliated with or endorsed by either author or their projects.
 
 ---
 
-## The product
-
-Copy one file into a repo:
-
-```bash
-curl -o AGENTS.md https://raw.githubusercontent.com/ramsani/karpathy-pocock-vectorial-agent-contract/master/AGENTS.md
-```
+## What changes in the agent
 
 The agent gets a compact behavioral contract that pushes it to:
 
@@ -56,6 +76,8 @@ Compact versions are secondary:
 - `CLAUDE.min.md` — compressed fallback for Claude Code
 
 The `.min` files are intentionally smaller. They preserve the core behavior, but they are not meant to replace the full contract when context is available.
+
+If you are unsure, use the full file. The first trial costs one copied file.
 
 ---
 

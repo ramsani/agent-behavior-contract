@@ -12,7 +12,7 @@ Repository name:
 karpathy-pocock-vectorial-agent-contract
 
 Description:
-Karpathy- and Pocock-inspired behavioral basis for coding agents: turn skills into instincts with a compact AGENTS.md / CLAUDE.md contract.
+AGENTS.md / CLAUDE.md behavioral contract for coding agents, Claude Code, Cursor, Codex, and LLM software engineering. Turn skills into instincts.
 
 Instructions:
 1. Inspect all files before making changes.
