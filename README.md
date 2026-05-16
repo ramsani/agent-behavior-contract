@@ -6,6 +6,8 @@ We do not store every expert behavior. We store a compact basis that can generat
 
 This repo turns agent skills into agent instincts.
 
+When knowledge is internalized, behavior can change.
+
 Instead of installing a growing list of situational skills, it extracts the expert behavior behind those skills and composes it through a compact `AGENTS.md` / `CLAUDE.md` contract.
 
 **The goal:** broader aligned agent behavior with less prompt growth, less context overhead, and more verifiable work.
@@ -65,6 +67,8 @@ How can it compose with other behaviors?
 The reusable parts become behavioral vectors and context operators.
 
 **A skill teaches a recipe. A behavior teaches judgment.**
+
+When a skill is internalized as behavior, the agent can act differently beyond the original recipe.
 
 ---
 
@@ -204,6 +208,8 @@ Evidence × Contradiction Detection
 ```
 
 The important property: when a useful skill is distilled into vectors and operators, the agent can behave correctly in neighboring situations that were never written as separate skills.
+
+That mirrors how humans learn: once knowledge becomes part of judgment, behavior changes beyond the original lesson.
 
 In practice, small added details can act like coefficients: they change the intensity, priority, or target of existing behavioral vectors without requiring a whole new procedure.
 

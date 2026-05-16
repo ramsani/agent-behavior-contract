@@ -124,9 +124,13 @@ This structure lets the contract stay compact while still producing specific beh
 
 The desired outcome is not that the agent memorizes more procedures. The desired outcome is that the agent acts as if it had better engineering instincts.
 
+When knowledge is internalized, behavior can change. This contract uses that human pattern as a design target for agents.
+
 When a useful skill is distilled into vectors and operators, the agent can produce aligned behavior in neighboring situations that were never written as separate skills.
 
 That is the leverage: new aligned conduct can emerge from combinations of existing behavioral components plus small task-specific details, instead of requiring a new instruction block for every case.
+
+The skill is no longer just a recipe to execute. It becomes a behavioral influence that changes what the agent notices, asks, avoids, verifies, and reports.
 
 That is the main product claim:
 
