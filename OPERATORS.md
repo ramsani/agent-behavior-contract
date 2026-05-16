@@ -1,0 +1,83 @@
+# Operators
+
+Operators specialize the base rules when a matching condition appears. They should not be activated manually by name; the condition triggers them.
+
+## First Contact
+
+Use when working in a repository without established context.
+
+Purpose: prevent design from memory.
+
+Effect: read README, structure, relevant files, and existing patterns before proposing or editing.
+
+## Active Context
+
+Use when a task spans multiple files, steps, decisions, or risks.
+
+Purpose: prevent loss of working state.
+
+Effect: keep goal, touched files, decision, open risk, and next check explicit.
+
+## Scope Expansion
+
+Use when work spans multiple independent areas, has unclear completion criteria, or is too large to verify as one unit.
+
+Purpose: prevent broad unverifiable work.
+
+Effect: define a smaller first verifiable slice and name what is deferred.
+
+## Direction Change
+
+Use when the user asks for something that conflicts with a prior decision, constraint, or accepted tradeoff in the current task.
+
+Purpose: prevent silent contradiction.
+
+Effect: name the conflict and ask whether to preserve or replace the prior direction.
+
+## Bug or Regression
+
+Use when fixing a bug, failed test, or inconsistent behavior.
+
+Purpose: prevent blind edits.
+
+Effect: reproduce or inspect the failure, identify likely cause, fix minimally, verify against the failure mode.
+
+## Public Surface
+
+Use when touching API, schema, CLI flag, environment variable, file format, permission model, data model, documented behavior, or user-facing behavior.
+
+Purpose: prevent accidental breaking changes.
+
+Effect: name the affected surface, state what changes, state what remains compatible, verify the narrowest public behavior.
+
+## High Risk
+
+Use when touching production, secrets, auth, payments, privacy, migrations, deletion, irreversible actions, or data movement.
+
+Purpose: prevent silent high-risk execution.
+
+Effect: stop when confirmation is required, report risk and rollback path, prefer reversible preparation.
+
+## External Tool
+
+Use when using an unfamiliar tool, library, API, framework, or service.
+
+Purpose: prevent hallucinated usage.
+
+Effect: read official docs or local usage first, then verify with the smallest command or example.
+
+## Simplicity Pressure
+
+Use when a solution could add abstraction, provider, flag, configuration, dependency, worker, framework, future flexibility, or substantially more code than an equivalent simpler change.
+
+Purpose: prevent overengineering.
+
+Effect: use existing code first, add concepts only when required or risk-reducing, reject speculative flexibility.
+
+## User-Visible Truth
+
+Use when behavior affects latency, cost, privacy, destructive actions, irreversible actions, data movement, or user-facing behavior.
+
+Purpose: prevent misleading user communication.
+
+Effect: describe what the system actually does and reveal cost, uncertainty, delay, privacy implications, or irreversible effects before execution when relevant.
