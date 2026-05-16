@@ -10,9 +10,58 @@ It guesses intent. It designs from memory. It overbuilds. It edits nearby code. 
 
 This repo gives the agent a compact behavioral basis that changes that trajectory.
 
+This is the difference:
+
+```text
+A normal AGENTS.md lists instructions.
+This one compresses many possible expert behaviors into reusable behavioral vectors.
+```
+
+Instead of writing 100+ separate rules for every situation, the contract combines a small set of base vectors with context operators. The result is many derived behaviors without a huge prompt.
+
 > More aligned behavior. Less prompt mass.
 >
 > Composition can replace accumulation.
+
+## Why this is not another AGENTS.md
+
+Most instruction files grow by accumulation:
+
+```text
+if bug, do this
+if API change, do this
+if risky task, do this
+if docs drift, do this
+if external tool, do this
+...
+```
+
+That works until the file becomes long, repetitive, and hard for the agent to prioritize.
+
+This repo uses a different structure:
+
+```text
+10 base vectors × context operators = many situated professional behaviors
+```
+
+For example:
+
+```text
+Bug or Regression × Evidence × Verification
+= inspect or reproduce the failure before fixing, then verify against that failure mode
+```
+
+```text
+Public Surface × Contract Safety
+= name the affected API/schema/CLI/env/user behavior and state compatibility impact
+```
+
+```text
+Simplicity Pressure × Scope × Minimal Reversible Change
+= avoid speculative abstraction and make the smallest reversible edit that solves the requested outcome
+```
+
+So the agent is not just following a longer checklist. It is being given a compact conduct system that tells it what to do, how to do it, and why it matters in the current context.
 
 ## Try it in 30 seconds
 
@@ -35,6 +84,8 @@ Then ask your agent to fix a bug, add a feature, or review a change. Watch for t
 This project does not model roles or rule sections. It models professional behavior patterns that compose, regulate, and modify agent conduct.
 
 We do not store every expert behavior. We store a compact basis that can generate them.
+
+If each derived behavior were written as a standalone instruction, this would likely become a much larger prompt. The point of the vectorial structure is to preserve behavior while reducing prompt mass.
 
 This repo turns agent skills into agent instincts.
 

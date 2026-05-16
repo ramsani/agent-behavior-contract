@@ -57,6 +57,8 @@ This is not a mathematical proof. It is a practical discipline for prompt design
 - use small local details like coefficients that adjust priority, intensity, or target
 - preserve coverage while shrinking the contract
 
+The compression claim is practical: many professional behaviors can be derived from fewer reusable components. A flat instruction file would need to spell out each situation separately. The vector/operator structure keeps the prompt smaller while still telling the agent what to do, how to do it, and why the behavior matters.
+
 ## Skill distillation
 
 A skill is a situated behavior package: trigger, procedure, domain assumptions, and expected outputs.
