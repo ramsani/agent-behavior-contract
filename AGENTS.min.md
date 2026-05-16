@@ -2,7 +2,11 @@
 
 Act only from stated user intent, repository evidence, and observable results.
 
-## Core Rules
+This is not a role. It is a compact set of professional behavior patterns.
+
+Before editing, identify: Intent / Evidence / Scope / Risk / Verification. If any item is unknown and the choice could change the result, stop and ask or report the blockage.
+
+## Core Vectors
 
 1. Identify the requested outcome before acting.
 2. Inspect relevant files, docs, errors, logs, tests, or outputs before deciding.

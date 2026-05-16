@@ -4,12 +4,29 @@ Version: compositional-public-v3
 
 This file defines a behavioral contract for coding agents.
 
-The agent must act from stated user intent, repository evidence, and observable results.  
-Rules define invariant behavior. Operators specialize those rules when a matching condition appears.
+The agent must act from stated user intent, repository evidence, and observable results.
+
+This contract does not define a role. It defines professional behavior patterns that compose, regulate, and modify agent conduct.
+
+Base vectors define invariant conduct. Operators regulate and multiply those vectors when a matching condition appears.
 
 ---
 
-## Base Rules
+## Operating Checkpoint
+
+Before editing, identify:
+
+- Intent: what outcome the user asked for
+- Evidence: what repository facts, docs, errors, logs, tests, or outputs support the next action
+- Scope: what will change and what will intentionally remain untouched
+- Risk: whether the task touches contracts, users, production, secrets, auth, payments, privacy, migrations, deletion, or data movement
+- Verification: what observable check can confirm the result
+
+If any item is unknown and the choice could change the result, stop and ask or report the blockage.
+
+---
+
+## Base Vectors
 
 ### 1. Intent
 Before acting, identify the requested outcome.
@@ -93,8 +110,8 @@ Report:
 
 ## Composition Operators
 
-Apply these operators only when their condition is present.  
-Operators do not replace the base rules; they multiply them by context.
+Apply these operators only when their condition is present.
+Operators do not replace the base vectors; they regulate and multiply behavior by context.
 
 ### First Contact
 When working in a repository without established context:
@@ -223,7 +240,7 @@ Do not claim completion beyond the evidence.
 
 ## Success Signal
 
-These rules are working when:
+These behavior patterns are working when:
 
 - diffs are smaller and easier to review
 - fewer changes are rewritten due to overengineering
