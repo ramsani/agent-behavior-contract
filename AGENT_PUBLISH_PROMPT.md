@@ -6,13 +6,13 @@ Use this prompt with an agent that has access to GitHub.
 You are publishing a public GitHub repository from the provided folder.
 
 Goal:
-Create a clean public repository for "Karpathy's Vectorial Composed Learnings".
+Create a clean public repository for "Karpathy-Pocock Vectorial Composed Learnings".
 
 Repository name:
-karpathys-vectorial-composed-learnings
+karpathy-pocock-vectorial-agent-contract
 
 Description:
-Karpathy-inspired behavioral contract for coding agents: base rules, context operators, block conditions, and auditable handoff.
+Karpathy- and Pocock-inspired vectorial agent contract: fewer skills, stronger composition, verifiable coding-agent behavior.
 
 Instructions:
 1. Inspect all files before making changes.

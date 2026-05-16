@@ -1,6 +1,10 @@
-# Karpathy's Vectorial Composed Learnings
+# Karpathy-Pocock Vectorial Composed Learnings
 
-A Karpathy-inspired behavioral contract for coding agents. Built on what the 4-rule approach taught, extended into 10 principles + 10 context operators.
+A compact behavioral contract for coding agents: fewer skills, stronger composition, clearer verification.
+
+Most agent-skill repos grow by adding more instructions. This project takes the opposite path: decompose recurring agent failures into independent behavioral vectors, then recombine them through context operators.
+
+Fewer skills. Stronger composition. Verifiable agent behavior.
 
 ---
 
@@ -140,7 +144,7 @@ These rules are working when:
 One line:
 
 ```bash
-curl -o AGENTS.md https://raw.githubusercontent.com/ramsani/karpathys-vectorial-composed-learnings/master/AGENTS.md
+curl -o AGENTS.md https://raw.githubusercontent.com/ramsani/karpathy-pocock-vectorial-agent-contract/master/AGENTS.md
 ```
 
 Then place `AGENTS.md` at the root of any project.
@@ -162,7 +166,7 @@ For tight context windows, use `AGENTS.min.md` instead.
 
 ## Attribution
 
-Inspired by Andrej Karpathy's public guidance on LLM coding failures. This is an independent project and is not affiliated with or endorsed by Andrej Karpathy.
+Inspired by Andrej Karpathy's public guidance on LLM coding failures and Matt Pocock's public coding-agent skills work. This is an independent project and is not affiliated with or endorsed by Andrej Karpathy, Matt Pocock, or their projects.
 
 This project extends those observations through a compositional model: decompose rules into independent vectors, remove redundancy, recover specificity through operators.
 
