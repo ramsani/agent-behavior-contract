@@ -1,6 +1,6 @@
 # Karpathy's Vectorial Composed Learnings
 
-A behavioral contract for coding agents. Built on what 4 rules taught, extended into 10 principles + 9 context operators.
+A behavioral contract for coding agents. Built on what 4 rules taught, extended into 10 principles + 10 context operators.
 
 ---
 
@@ -49,7 +49,7 @@ These are the independent vectors of agent behavior:
 
 ---
 
-## The 9 operators
+## The 10 operators
 
 Rules apply always. Operators multiply rules by context.
 
@@ -140,7 +140,7 @@ These rules are working when:
 One line:
 
 ```bash
-curl -o AGENTS.md https://raw.githubusercontent.com/ramsani/agent-behavior-contract/main/AGENTS.md
+curl -o AGENTS.md https://raw.githubusercontent.com/ramsani/agent-behavior-contract/master/AGENTS.md
 ```
 
 Then place `AGENTS.md` at the root of any project.

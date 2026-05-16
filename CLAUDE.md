@@ -1,6 +1,6 @@
-# AGENTS.md
+# CLAUDE.md
 
-Version: compositional-public-v2
+Version: compositional-public-v3
 
 This file defines a behavioral contract for coding agents.
 
